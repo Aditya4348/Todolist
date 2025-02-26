@@ -3,8 +3,6 @@
 
 @section('konten')
 
-<div class="">
-    @livewire('todolist-manager')
-</div>
+    @livewire('task-manager')
 
 @endsection

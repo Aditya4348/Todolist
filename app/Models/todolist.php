@@ -13,6 +13,6 @@ class todolist extends Model
     protected $fillable = ['judul','tanggal','status'];
 
     public function tasks(){
-        return $this->hasMany(Task::class, 'todolist_id');
+        return $this->hasMany(tasks::class);
     }
 }

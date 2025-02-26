@@ -10,6 +10,10 @@ use App\Models\todolist;
 
 class TodolistManager extends Component
 {
+    public $prioritas;
+    public $task_date;
+    public $deskripsi;
+    public $todolist_id ;
     public $todolist;
     public $judul;
     public $tanggal;
@@ -17,7 +21,7 @@ class TodolistManager extends Component
 
     public function mount()
     {
-        $this->todolist = todolist::all();
+        $this->todolist = todolist::with('tasks')->get();
     }
 
     public function create()
@@ -39,7 +43,31 @@ class TodolistManager extends Component
         $this->todolist = todolist::all();
     }
 
+    public function taskCreate()
+{
+     
+    $this->validate([
+        'deskripsi' => 'required',
+        'task_date' => 'required',
+        'prioritas' => 'required',
+        'todolist_id' => 'required'
+    ]);
 
+    $this->task = tasks::create([
+        'deskripsi' => $this->deskripsi,
+        'task_date' => $this->task_date,
+        'prioritas' => $this->prioritas,
+        'todolist_id' => $this->todolist_id, // Pastikan todolist_id diisi
+    ]);
+
+    session()->flash('sukses', 'Task Berhasil Dibuat');
+
+    // Reset the form fields
+    $this->deskripsi = '';
+    $this->task_date = '';
+    $this->prioritas = '';
+    $this->task = tasks::all();
+}
     public function delete($id)
     {
 
@@ -50,17 +78,6 @@ class TodolistManager extends Component
         $this->todolist = todolist::all();
 
     }
-
-    public function show($todolist_id)
-    {
-
-        // Alihkan ke halaman task-manager dengan ID todolist_id
-        return view('task', ['todolist_id' => $todolist_id]);
-        
-    }
-
-
-
     public function render()
     {
         return view('livewire.todolist-manager');

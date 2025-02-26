@@ -51,18 +51,14 @@ class TodolistManager extends Component
 
     }
 
-    public function show($id)
+    public function show($todolist_id)
     {
 
-        $task = todolist::find($id);
-
-        if (!$task) {
-            abort(404, 'Task not found');
-        }
-
-        // Alihkan ke halaman task-manager dengan ID task
-        return redirect()->route('task-manager', ['task' => $task->id]);
+        // Alihkan ke halaman task-manager dengan ID todolist_id
+        return view('task', ['todolist_id' => $todolist_id]);
+        
     }
+
 
 
     public function render()

@@ -48,10 +48,10 @@
                     class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-300">
                     Hapus
                 </button>
-                <button wire:click="show({{ $todo->id }})"
+                <a href="{{route('task-manager', ['todolist_id' => $todo->id])}}"
                     class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 transition duration-300">
                     Detail
-                </button>
+                </a>
             </li>
             @endforeach
             @if (session()->has('pesanHapus'))

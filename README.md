@@ -7,10 +7,6 @@ Aplikasi Todo List ini dibangun menggunakan **Laravel**, **Livewire**, dan **Tai
 1. [Pengenalan](#pengenalan)
 2. [Fitur](#fitur)
 3. [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-4. [Instalasi](#instalasi)
-5. [Penggunaan](#penggunaan)
-6. [Kontribusi](#kontribusi)
-7. [Lisensi](#lisensi)
 
 ## Pengenalan
 

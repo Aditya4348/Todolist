@@ -1,5 +1,5 @@
-<div class="max-w-full mx-auto p-6 bg-gradient-to-r from-blue-100 via-indigo-200 to-purple-200 shadow-xl rounded-lg">
-    <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Todo List</h1>
+<div class="max-w-full mx-auto p-6 bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-xl rounded-lg">
+    <h1 class="text-3xl font-semibold text-center text-white mb-6">Todo List</h1>
 
     <!-- Pesan Flash -->
     @if (session()->has('pesan'))
@@ -11,23 +11,22 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Form untuk Menambah Todo List (Kiri) -->
-        <div class="space-y-6 bg-white p-6 rounded-xl shadow-md">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tambah Todo List</h2>
+        <div class="space-y-6 bg-gray-800 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-semibold text-white mb-4">Tambah Todo List</h2>
 
             <div>
-                <label for="judul" class="block text-lg font-medium text-gray-700">Judul</label>
+                <label for="judul" class="block text-lg font-medium text-gray-300">Judul</label>
                 <input type="text" id="judul" wire:model="judul"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder="Masukkan judul todo">
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white placeholder-gray-400">
                 @error('judul')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
 
             <div>
-                <label for="tanggal" class="block text-lg font-medium text-gray-700">Tanggal</label>
+                <label for="tanggal" class="block text-lg font-medium text-gray-300">Tanggal</label>
                 <input type="date" id="tanggal" wire:model="tanggal"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white">
                 @error('tanggal')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
@@ -40,26 +39,26 @@
         </div>
 
         <!-- Form untuk Menambahkan Task (Kanan) -->
-        <div class="space-y-6 bg-white p-6 rounded-xl shadow-md">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tambah Task</h2>
+        <div class="space-y-6 bg-gray-800 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-semibold text-white mb-4">Tambah Task</h2>
 
             <div>
-                <label for="deskripsi" class="block text-lg font-medium text-gray-700">Deskripsi Task</label>
+                <label for="deskripsi" class="block text-lg font-medium text-gray-300">Deskripsi Task</label>
                 <textarea id="deskripsi" wire:model="deskripsi" rows="3"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder="Masukkan deskripsi task"></textarea>
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white placeholder-gray-400"></textarea>
             </div>
 
             <div>
-                <label for="task_date" class="block text-lg font-medium text-gray-700">Tanggal Task</label>
+                <label for="task_date" class="block text-lg font-medium text-gray-300">Tanggal Task</label>
                 <input type="date" id="task_date" wire:model="task_date"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white">
             </div>
 
             <div>
-                <label for="prioritas" class="block text-lg font-medium text-gray-700">Prioritas</label>
+                <label for="prioritas" class="block text-lg font-medium text-gray-300">Prioritas</label>
                 <select wire:model="prioritas"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white">
+                    <option value="">Pilih Kesulitan</option>
                     <option value="Tinggi">Tinggi</option>
                     <option value="Sedang">Sedang</option>
                     <option value="Rendah">Rendah</option>
@@ -67,9 +66,9 @@
             </div>
 
             <div>
-                <label for="todolist_id" class="block text-lg font-medium text-gray-700">Todo List</label>
+                <label for="todolist_id" class="block text-lg font-medium text-gray-300">Todo List</label>
                 <select wire:model="todolist_id"
-                    class="w-full p-4 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white">
                     <option value="">Pilih Todo List</option>
                     @foreach ($todolist as $todo)
                     <option value="{{ $todo->id }}">{{ $todo->judul }}</option>
@@ -112,14 +111,14 @@
     @endif
     <!-- Daftar Todo List dengan Accordion di Bawah -->
     <div class="mt-12">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Daftar Todo</h2>
+        <h2 class="text-2xl font-semibold text-white mb-4">Daftar Todo</h2>
         <ul class="space-y-4">
             @foreach ($todolist as $todo)
             <li>
                 <!-- Accordion untuk Todo dan Task -->
-                <div x-data="{ open: false }" class="border-b border-gray-300">
+                <div x-data="{ open: false }" class="border-b border-gray-700">
                     <button @click="open = !open"
-                        class="w-full text-left p-4 bg-indigo-50 text-indigo-600 font-semibold flex justify-between items-center hover:bg-indigo-100 focus:outline-none rounded-lg">
+                        class="w-full text-left p-4 bg-indigo-800 text-white font-semibold flex justify-between items-center hover:bg-indigo-700 focus:outline-none rounded-lg">
                         <span>{{ $todo->judul }} - {{ \Carbon\Carbon::parse($todo->tanggal)->format('d M Y') }}</span>
                         <svg x-bind:class="open ? 'transform rotate-180' : ''" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -129,24 +128,28 @@
                         </svg>
                     </button>
 
-                    <div x-show="open" x-transition class="p-4 space-y-4 bg-white shadow-lg rounded-md">
+                    <div x-show="open" x-transition class="p-4 space-y-4 bg-gray-800 shadow-lg rounded-md">
                         <!-- Task List -->
                         @foreach ($todo->tasks as $task)
-                        <div class="flex justify-between items-center p-3 border-b border-gray-200 bg-gray-50">
+                        <div class="flex justify-between items-center p-3 border-b border-gray-700 bg-gray-700">
                             <div class="flex flex-col">
-                                <span class="font-semibold text-gray-700">{{ $task->deskripsi }}</span>
-                                <span class="text-sm text-gray-500">{{ $task->prioritas }}</span>
-                                <span class="text-xs text-gray-400">
+                                <span class="font-semibold text-white">{{ $task->deskripsi }}</span>
+                                <span class="text-sm text-gray-400">{{ $task->prioritas }}</span>
+                                <span class="text-xs text-gray-500">
                                     {{ \Carbon\Carbon::parse($task->task_date)->format('d M Y') }}
                                 </span>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <span class="text-sm {{ $task->selesai ? 'text-green-600' : 'text-red-600' }}">
+                                <span class="text-sm {{ $task->selesai ? 'text-green-500' : 'text-red-500' }}">
                                     {{ $task->selesai ? 'Selesai' : 'Belum Selesai' }}
                                 </span>
                                 <button wire:click="markComplete({{ $task->id }})"
                                     class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600 text-xs">
                                     Selesai
+                                </button>
+                                <button wire:click="deleteTask({{ $task->id }})"
+                                    class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 text-xs">
+                                    Hapus
                                 </button>
                             </div>
                         </div>
@@ -154,7 +157,7 @@
 
                         <!-- Tombol Hapus yang Diperbarui -->
                         <button wire:click="delete({{ $todo->id }})"
-                            class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 transform mt-4 flex items-center justify-center space-x-2">
+                            class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 transform mt-4 flex items-center justify-center space-x-2">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-5 h-5">

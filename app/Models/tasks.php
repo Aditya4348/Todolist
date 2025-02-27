@@ -9,7 +9,7 @@ class tasks extends Model
 {
     use HasFactory;
 
-    protected $fillable =['deskripsi','task_date','prioritas','todolist_id'];
+    protected $fillable =['deskripsi','task_date','prioritas','todolist_id','selesai'];
 
     protected $priorityOption =['Tinggi','Sedang','Rendah'];
 

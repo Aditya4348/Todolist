@@ -10,6 +10,7 @@ use App\Models\todolist;
 
 class TodolistManager extends Component
 {
+    public $task;
     public $prioritas;
     public $task_date;
     public $deskripsi;
@@ -66,6 +67,7 @@ class TodolistManager extends Component
     $this->deskripsi = '';
     $this->task_date = '';
     $this->prioritas = '';
+    $this->todolist_id= '';
     $this->task = tasks::all();
 }
     public function delete($id)
@@ -77,6 +79,31 @@ class TodolistManager extends Component
 
         $this->todolist = todolist::all();
 
+    }
+
+    public function deleteTask($id)
+    {
+
+        tasks::find($id)->delete();
+
+        session()->flash('pesanHapus', 'Task Berhasil dihapus');
+
+        $this->task = tasks::all();
+
+    }
+
+    public function markComplete($id){
+        
+        $task = tasks::find($id);
+
+        if ($task) {
+            
+            $task->selesai = true;
+            $task->save(); # code...
+        }else{
+            session()->flash('pesanHapus', 'Task tidak ditemukan!');
+        }
+        
     }
     public function render()
     {

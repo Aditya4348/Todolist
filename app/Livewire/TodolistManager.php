@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\tasks;
 use Illuminate\Console\View\Components\Task;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use App\Models\todolist;
 
@@ -16,12 +17,12 @@ class TodolistManager extends Component
     public $prioritas;
     public $task_date;
     public $deskripsi;
-    public $todolist_id ;
-    public $todolist;
+    public $todolist_id;
+    public $todolist = [];
     public $judul;
     public $tanggal;
     public $status;
-    
+
 
     public function mount()
     {

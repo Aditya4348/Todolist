@@ -8,6 +8,7 @@ use App\Models\todolist;
 use App\Models\tasks;
 use Livewire\Component;
 
+
 // return response()->json(tabel, 200); digunakan untuk mengirim response ke json yang dikirim ke route api
 
 
@@ -18,10 +19,10 @@ class TodolistManager extends Controller
     public function indexapi()
     {
         // menampilkan seluruhb data taks yang diambil dari tabel taks
+
         $todolist = todolist::all();
         return response()->json($todolist, 200);
     }
-
 
     public function indexTaks()
     {
@@ -96,14 +97,14 @@ class TodolistManager extends Controller
         // Update status berdasarkan input
         tasks::update($data);
 
+
         return response()->json([
             'success' => true,
             'message' => "Data berhasil diubah",
             'status' => $data['selesai'] ? 'Selesai' : 'Belum Selesai'
+
         ], 200);
     }
-
-
 
 
     public function destroy(string $id)

@@ -3,15 +3,15 @@
 namespace App\Livewire;
 
 use App\Models\tasks;
+use Illuminate\Console\View\Components\Task;
 use Livewire\Attributes\Layout;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use App\Models\todolist;
 
 class TodolistManager extends Component
 {
-    // Properti untuk menyimpan data input dan digunakan di form
+     // Properti untuk menyimpan data input dan digunakan di form
     public $task;
     public $prioritas;
     public $task_date;
@@ -131,8 +131,10 @@ class TodolistManager extends Component
     }
 
     // Merender tampilan Livewire dan mengarahkan ke view livewire.todolist-manager
+
     public function render()
     {
         return view('livewire.todolist-manager');
     }
+
 }

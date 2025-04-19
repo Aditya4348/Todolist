@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+
 use Livewire\Livewire;
 use Illuminate\Support\Str;
 use Dedoc\Scramble\Scramble;
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
         Livewire::directive('layout', function () {
             return 'components.layouts.app';
         });
-
+        
         Scramble::configure()
         ->routes(function (Route $route) {
             return Str::startsWith($route->uri, 'api/');

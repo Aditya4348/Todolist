@@ -71,11 +71,7 @@
                     class="w-full p-4 border border-gray-700 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700 text-white">
                     <option value="">Pilih Todo List</option>
                     @foreach ($todolist as $todo)
-<<<<<<< HEAD
                     <option value="{{ $todo['id'] }}">{{ $todo['judul'] }}</option>
-=======
-                    <option value="{{ $todo->id }}">{{ $todo->judul }}</option>
->>>>>>> bd1f234de5faa0a26a93ea730ac12b1b2f9705f2
                     @endforeach
                 </select>
             </div>
@@ -113,7 +109,6 @@
         </button>
     </div>
     @endif
-<<<<<<< HEAD
 
     <!-- Pesan Flash -->
     @if (session()->has('messageError'))
@@ -190,56 +185,13 @@
                                 <a href="{{route('update_task', $task['id'])}}" class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 text-xs">
                                     Update
                                 </a>
-                                <button wire:click="deleteTask({{ $task['id'] }})"
-=======
-    <!-- Daftar Todo List dengan Accordion di Bawah -->
-    <div class="mt-12">
-        <h2 class="text-2xl font-semibold text-white mb-4">Daftar Todo</h2>
-        <ul class="space-y-4">
-            @foreach ($todolist as $todo)
-            <li>
-                <!-- Accordion untuk Todo dan Task -->
-                <div x-data="{ open: false }" class="border-b border-gray-700">
-                    <button @click="open = !open"
-                        class="w-full text-left p-4 bg-indigo-800 text-white font-semibold flex justify-between items-center hover:bg-indigo-700 focus:outline-none rounded-lg">
-                        <span>{{ $todo->judul }} - {{ \Carbon\Carbon::parse($todo->tanggal)->format('d M Y') }}</span>
-                        <svg x-bind:class="open ? 'transform rotate-180' : ''" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="w-5 h-5 transition-transform duration-300">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </button>
-
-                    <div x-show="open" x-transition class="p-4 space-y-4 bg-gray-800 shadow-lg rounded-md">
-                        <!-- Task List -->
-                        @foreach ($todo->tasks as $task)
-                        <div class="flex justify-between items-center p-3 border-b border-gray-700 bg-gray-700">
-                            <div class="flex flex-col">
-                                <span class="font-semibold text-white">{{ $task->deskripsi }}</span>
-                                <span class="text-sm text-gray-400">{{ $task->prioritas }}</span>
-                                <span class="text-xs text-gray-500">
-                                    {{ \Carbon\Carbon::parse($task->task_date)->format('d M Y') }}
-                                </span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-sm {{ $task->selesai ? 'text-green-500' : 'text-red-500' }}">
-                                    {{ $task->selesai ? 'Selesai' : 'Belum Selesai' }}
-                                </span>
-                                <button wire:click="markComplete({{ $task->id }})"
-                                    class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600 text-xs">
-                                    Selesai
-                                </button>
-                                <button wire:click="deleteTask({{ $task->id }})"
->>>>>>> bd1f234de5faa0a26a93ea730ac12b1b2f9705f2
-                                    class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 text-xs">
+                                <button wire:click="deleteTask({{ $task['id'] }})" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 text-xs">
                                     Hapus
                                 </button>
                             </div>
                         </div>
                         @endforeach
 
-<<<<<<< HEAD
                         <!-- Tombol Hapus Todo -->
                         <button wire:click="delete({{ $todo['id'] }})"
                             class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 transform mt-4 flex items-center justify-center space-x-2">
@@ -247,16 +199,6 @@
                                 stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
-=======
-                        <!-- Tombol Hapus yang Diperbarui -->
-                        <button wire:click="delete({{ $todo->id }})"
-                            class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300 transform mt-4 flex items-center justify-center space-x-2">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
->>>>>>> bd1f234de5faa0a26a93ea730ac12b1b2f9705f2
                             </svg>
                             <span class="text-sm font-medium">Hapus Todo</span>
                         </button>
@@ -266,9 +208,4 @@
             @endforeach
         </ul>
     </div>
-<<<<<<< HEAD
-
 </div>
-=======
-</div>
->>>>>>> bd1f234de5faa0a26a93ea730ac12b1b2f9705f2
